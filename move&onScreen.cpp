@@ -69,29 +69,7 @@ void HandleMovement()
 	//Handles Player Movement
 }
 
-void HandleEnemy()
-{	
-	int d = 0, i;
-	while(i < 5)
-	{
-		if(i < 3)
-		{
-			d++;
-			i++;	
-		}
-		else if(i > 3)
-		{
-			d--;
-			i++;
-		}
-		else if(i > 5)
-		{
-			i = 0;
-		}
-	}
-	enemy->position.x = 4;	
-	enemy->position.y = d;
-}
+
 
 int main()
 {	
@@ -101,7 +79,6 @@ int main()
 	while(true)
 	{
 		HandleMovement();
-		HandleEnemy();
 		
 		//use matrix
 		
@@ -117,10 +94,10 @@ int main()
 				{
 					cout<<" % ";
 				}
-				else
+				/*else
 				{
 					cout<<" o ";
-				}
+				}*/
 			}
 			
 			cout<<"\n";
