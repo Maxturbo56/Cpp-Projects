@@ -19,6 +19,8 @@ void Unesi_ucenika(){
 	
 	ofstream filein;
 	filein.open("ucenici.txt",ios::app);
+
+	
 	
 	cout<<"Unesi ime: "<<endl;
 	cin>>trenutni.ime;
