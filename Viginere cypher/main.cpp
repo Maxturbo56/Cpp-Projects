@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <windows.h>
 using namespace std;
 
 int main()
@@ -129,6 +130,6 @@ int main()
     }
 
     cout<<"CYPHER TEXT RESULT : "<<cypher_text<<endl;
-
+    Sleep(10000);
     return 0;
 }
