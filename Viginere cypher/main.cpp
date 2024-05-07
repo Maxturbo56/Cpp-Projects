@@ -141,7 +141,7 @@ int main()
     ofstream fajl_alphabet;
     // ---------------------------------------------
     fajl_cypher.open("poruka.txt", ios::out);
-    fajl_cypher<<cypher_text<<endl;
+    fajl_cypher<<cypher_text;
     fajl_cypher.close();
     // -----------------------------------------
     fajl_alphabet.open("abc.txt", ios::out);
