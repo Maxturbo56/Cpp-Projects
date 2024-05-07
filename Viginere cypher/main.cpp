@@ -1,7 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <windows.h>
+#include <fstream>
 using namespace std;
+
+/*
+uneses rijec koja transponuje abecedu
+uneses poruku koju hoces enkriptovati
+uneses keyword koji SAMO ti znas i vrati ti enkriptovanu tvoju poruku
+*/
 
 int main()
 {
@@ -9,6 +16,7 @@ int main()
     //key matrix
     char matrix[26][26];
     string key;
+    cout<<"Enter transpose key for alphabet : "<<endl;
     cin>>key;
     /* za svako slovo u key, treba :
     1. nac isto to slovo u vektoru
@@ -90,8 +98,7 @@ int main()
         }
         message_pointer++;
     }
-    cout<<secret_keyword;
-
+    cout<<"SECRET KEYWORD COMPILED : "<<secret_keyword<<endl;
     /* U ovom momentu se
     secret keyword i secret 
     message poklapaju po duzini savresno.
@@ -99,7 +106,6 @@ int main()
     u obe i da se 'j' i 'i'
     poklapaju.
     */
-
     // MAKE THE CYPER TEXT
     string cypher_text = ""; 
     int cypher_row = 0;
@@ -128,8 +134,28 @@ int main()
 
         cypher_text += matrix[cypher_row][cypher_collumn]; 
     }
-
     cout<<"CYPHER TEXT RESULT : "<<cypher_text<<endl;
-    Sleep(10000);
+
+    // Write to file for sending...
+    ofstream fajl_cypher;
+    ofstream fajl_alphabet;
+    // ---------------------------------------------
+    fajl_cypher.open("poruka.txt", ios::out);
+    fajl_cypher<<cypher_text<<endl;
+    fajl_cypher.close();
+    // -----------------------------------------
+    fajl_alphabet.open("abc.txt", ios::out);
+    for(int i = 0; i < 26; i++)
+    {
+        for(int j = 0; j < 26; j++)
+        {
+            fajl_alphabet<<matrix[i][j];
+        }
+    }
+    fajl_alphabet.close();
+    cout<<"Terminating cypher excecution..."<<endl;
+    Sleep(2000);
+    int f;
+    cin>>f;
     return 0;
 }
